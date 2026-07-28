@@ -29,10 +29,3 @@ services:
         sync: false
       - key: FRONTEND_URL
         sync: false
-
-  - type: cron
-    name: keep-hdms-awake
-    runtime: python
-    plan: free
-    schedule: "*/14 * * * *"
-    command: python -c "import urllib.request; urllib.request.urlopen('http://hdms-backend:8000/api/v1/health')"
