@@ -115,9 +115,7 @@ This application is built to be deployed seamlessly with **Render** (for the bac
 ### 2. Backend (Render)
 1. Create a **Web Service** on Render connected to this repository.
 2. **Root Directory:** `backend`
-3. **Environment:** `Python 3`
-4. **Build Command:** `pip install -r requirements.txt`
-5. **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+3. **Environment:** `Docker`
 6. Add the following environment variables:
    - `DATABASE_URL`: (Internal URL from Step 1)
    - `JWT_SECRET_KEY`: (Secure random string)
