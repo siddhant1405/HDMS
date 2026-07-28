@@ -108,21 +108,13 @@ The backend returns a short-lived JWT access token to the frontend. The longer-l
 
 This application is built to be deployed seamlessly with **Render** (for the backend/database) and **Netlify** (for the frontend).
 
-### 1. Database (Render - Dockerized)
-Instead of a Managed Postgres, we will deploy the official Postgres Docker image.
-1. On Render, create a **Private Service**.
-2. Choose **Deploy an existing image from a registry** and use `postgres:15-alpine`.
-3. Name it `hdms-postgres`.
-4. Add Environment Variables: `POSTGRES_USER=hdms_user`, `POSTGRES_PASSWORD=hdms_pass`, `POSTGRES_DB=hdms_db`.
-5. Add a Disk named `pgdata` mounted at `/var/lib/postgresql/data`.
-6. Your Internal Database URL will be: `postgresql+asyncpg://hdms_user:hdms_pass@hdms-postgres:5432/hdms_db`
-
-### 2. Backend (Render)
-1. Create a **Web Service** on Render connected to this repository.
-2. **Root Directory:** `backend`
-3. **Environment:** `Docker`
-6. Add the following environment variables:
-   - `DATABASE_URL`: (Internal URL from Step 1)
+### 1. Backend & Database (Render Blueprint)
+We provide a `render.yaml` Blueprint file to automatically deploy a free PostgreSQL database and the FastAPI Docker container, linked together automatically.
+1. Create an account at [Render.com](https://render.com).
+2. Go to **Blueprints** > **New Blueprint Instance**.
+3. Connect your GitHub repository.
+4. Render will create `hdms-db` (database), `hdms-backend` (Docker web service), and `keep-hdms-awake` (Cron job).
+5. Once created, go to the `hdms-backend` **Environment** settings and manually add the following secrets:
    - `JWT_SECRET_KEY`: (Secure random string)
    - `FERNET_KEY`: (Generated Fernet key)
    - `GOOGLE_CLIENT_ID` & `GOOGLE_CLIENT_SECRET`: (From Google Cloud Console)
