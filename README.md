@@ -108,9 +108,14 @@ The backend returns a short-lived JWT access token to the frontend. The longer-l
 
 This application is built to be deployed seamlessly with **Render** (for the backend/database) and **Netlify** (for the frontend).
 
-### 1. Database (Render)
-1. Create a **PostgreSQL** database on Render.
-2. Copy the **Internal Database URL**.
+### 1. Database (Render - Dockerized)
+Instead of a Managed Postgres, we will deploy the official Postgres Docker image.
+1. On Render, create a **Private Service**.
+2. Choose **Deploy an existing image from a registry** and use `postgres:15-alpine`.
+3. Name it `hdms-postgres`.
+4. Add Environment Variables: `POSTGRES_USER=hdms_user`, `POSTGRES_PASSWORD=hdms_pass`, `POSTGRES_DB=hdms_db`.
+5. Add a Disk named `pgdata` mounted at `/var/lib/postgresql/data`.
+6. Your Internal Database URL will be: `postgresql+asyncpg://hdms_user:hdms_pass@hdms-postgres:5432/hdms_db`
 
 ### 2. Backend (Render)
 1. Create a **Web Service** on Render connected to this repository.
