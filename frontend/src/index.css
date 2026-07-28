@@ -1,0 +1,97 @@
+/* ============================================================
+   HDMS Global Design System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Brand palette */
+  --bg: #f0faf8;
+  --bg-subtle: #e8f5f3;
+  --surface: #ffffff;
+  --surface-strong: #eef7f5;
+  --surface-glass: rgba(255, 255, 255, 0.82);
+  --text: #0d1f1c;
+  --text-secondary: #2d4a46;
+  --muted: #637c78;
+  --border: #cee5e1;
+  --border-strong: #a8d0cb;
+
+  /* Primary (teal) */
+  --primary: #0d9488;
+  --primary-dark: #0a7a70;
+  --primary-strong: #086b62;
+  --primary-soft: #ccf0ec;
+  --primary-xsoft: #e6f8f6;
+
+  /* Accent */
+  --blue: #2563eb;
+  --blue-soft: #dbeafe;
+
+  /* Danger */
+  --danger: #be1b0c;
+  --danger-mid: #dc2626;
+  --danger-soft: #fee2e0;
+
+  /* Status */
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+  --warning: #d97706;
+  --warning-soft: #fef3c7;
+
+  /* Elevation */
+  --shadow-xs: 0 1px 3px rgba(13, 50, 45, 0.08);
+  --shadow-sm: 0 2px 8px rgba(13, 50, 45, 0.1);
+  --shadow: 0 4px 20px rgba(13, 50, 45, 0.1);
+  --shadow-lg: 0 8px 32px rgba(13, 50, 45, 0.14);
+
+  /* Typography */
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
